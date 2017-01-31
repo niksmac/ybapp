@@ -316,3 +316,6 @@ video {
   margin: 0;
   display: block;
 }
+.ui.search {
+  margin: 20px 0;
+}

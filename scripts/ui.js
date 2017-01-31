@@ -80,7 +80,7 @@ jQuery(document).ready(function ($) {
       let action = $(this).attr('data-clik')
       switch (action) {
         case 'search':
-
+          openSearch()
           break
         case 'camera':
           $('.ui.modal').modal('show')
@@ -132,6 +132,41 @@ jQuery(document).ready(function ($) {
   $('.ui.modal').on('click', function () {
     $('.ui.modal').modal('show')
   })
+
+  function openSearch () {
+    $('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle')
+
+    var content = [
+      { title: 'Andorra' },
+      { title: 'United Arab Emirates' },
+      { title: 'Afghanistan' },
+      { title: 'Antigua' },
+      { title: 'Anguilla' },
+      { title: 'Albania' },
+      { title: 'Armenia' },
+      { title: 'Netherlands Antilles' },
+      { title: 'Angola' },
+      { title: 'Argentina' },
+      { title: 'American Samoa' },
+      { title: 'Austria' },
+      { title: 'Australia' },
+      { title: 'Aruba' },
+      { title: 'Aland Islands' },
+      { title: 'Azerbaijan' },
+      { title: 'Bosnia' },
+      { title: 'Barbados' },
+      { title: 'Bangladesh' },
+      { title: 'Belgium' },
+      { title: 'Burkina Faso' },
+      { title: 'Bulgaria' },
+      { title: 'Bahrain' },
+      { title: 'Burundi' }
+    ]
+
+    $('.ui.search').search({
+      source: content
+    })
+  }
 })
 
 // setInterval(function () {

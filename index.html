@@ -8,23 +8,38 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <div class="ui fluid main container">
-    <div id="chat-messageboxs" class="animate"></div>
-    <div id="infoSection" class="hidden"></div>
-  </div>
-  <form id="chatInput" class="hidden">
-    <div class="ui right labeled fluid big input">
-      <input type="text" placeholder="Write here..." id="msgTxt">
-      <input type="file" id="file" name="file" class="hidden" />
-      <button type="submit" class="ui basic label" id="sendMessage"><i class="send outline icon"></i></button>
-    </div>
-  </form>
 
-  <div class="ui basic modal">
-    <i class="close icon"></i>
-    <div class="content">
-      <div class="description">
-        <video id="camera" autoplay> </video>
+  <div class="ui top inverted sidebar">
+    <div class="ui fluid container">
+      <div class="ui fluid category search">
+        <div class="ui fluid icon input">
+          <input class="prompt" type="text" placeholder="Search Countries...">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pusher">
+    <div class="ui fluid main container">
+      <div id="chat-messageboxs" class="animate"></div>
+      <div id="infoSection" class="hidden"></div>
+    </div>
+    <form id="chatInput" class="hidden">
+      <div class="ui right labeled fluid big input">
+        <input type="text" placeholder="Write here..." id="msgTxt">
+        <input type="file" id="file" name="file" class="hidden" />
+        <button type="submit" class="ui basic label" id="sendMessage"><i class="send outline icon"></i></button>
+      </div>
+    </form>
+
+    <div class="ui basic modal">
+      <div class="content">
+        <div class="description">
+          <video id="camera" autoplay> </video>
+        </div>
       </div>
     </div>
   </div>
