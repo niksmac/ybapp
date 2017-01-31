@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Youribot!</title>
+  <link rel="stylesheet" href="styles/semantic.min.css">
+  <link rel="stylesheet" href="styles/animate.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+  <div class="ui fluid main container">
+    <div id="chat-messageboxs" class="animate">
+    </div>
+  </div>
+
+  <form id="chatInput" class="hidden">
+    <div class="ui right labeled fluid big input">
+      <!-- <div class="ui basic label"><i class="folder open outline icon"></i></div> -->
+      <input type="text" placeholder="Write here..." id="msgTxt">
+      <input type="file" id="file" name="file" class="hidden" />
+      <button type="submit" class="ui basic label" id="sendMessage"><i class="send outline icon"></i></button>
+    </div>
+  </form>
+  
+
+</body>
+
+<script src="scripts/jquery.min.js" onload="window.$ = window.jQuery = module.exports;" charset="utf-8"></script>
+<script src="scripts/semantic.js" charset="utf-8"></script>
+<script src="scripts/lorem.js" charset="utf-8"></script>
+<script src="scripts/ui.js" charset="utf-8"></script>
+
+</html>
