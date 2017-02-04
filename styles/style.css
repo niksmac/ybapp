@@ -296,8 +296,8 @@ div.messagebox.left .bubble:before {
 #chatInput * {
   border: 0 none !important
 }
-.label.actions {
-      margin-left: 10px;
+.labelactions {
+  margin-left: 10px;
 }
 .actions a.label i{
   margin: 0 !important;
@@ -320,4 +320,17 @@ video {
 }
 .ui.search {
   margin: 20px 0;
+}
+.ybt {
+  background: url(../assets/img/YouriPng.png) center center;
+  height: 150px;
+  display: block;
+  width: 150px;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 1px 11px 0px rgba(204, 204, 204, 0.45);
+  -moz-box-shadow: 0px 1px 11px 0px rgba(204, 204, 204, 0.45);
+  box-shadow:0px 1px 11px 0px rgba(204, 204, 204, 0.45);
+  cursor: pointer;
 }
