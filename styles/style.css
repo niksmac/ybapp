@@ -77,9 +77,11 @@ div.centerMiddle {
 }
 .messagebox.right .bubble{
   background:#f0f4f7;
+  color: #555;
 }
 .messagebox.left .bubble{
-  background:#f4fdb3;
+  background:#333;
+  color: #FFF;
 }
 .messagebox .bubble{
   padding:10px;
@@ -101,7 +103,7 @@ div.messagebox.right .bubble:before {
 }
 div.messagebox.left .bubble:before {
   left: 0;
-  border-top: 16px solid #f4fdb3;
+  border-top: 16px solid #333;
 }
 #chat-messageboxs div.messagebox.right .bubble{
   float:right;
