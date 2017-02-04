@@ -3,13 +3,14 @@
 jQuery(document).ready(function ($) {
   // alert('f')
   var $chatDiv = $('#chat-messageboxs')
-  var botBeep = new Audio('beeps/bot.mp3')
-  var meBeep = new Audio('beeps/me.mp3')
+  var botBeep = new Audio('assets/beeps/bot.mp3')
+  var meBeep = new Audio('assets/beeps/me.mp3')
 
   // 1
   setTimeout(function () {
-    messageRow('What can i do for you?', 'left')
-    showChoice()
+    // showWelcome()
+    // messageRow('What can i do for you?', 'left')
+    // showChoice()
   }, 1500)
 
   function messageRow (txt, side) {
@@ -76,7 +77,7 @@ jQuery(document).ready(function ($) {
   }
 
   function initActionsClick () {
-    $('.ui.actions a').on('click', function () {
+    $('.labelactions a').on('click', function () {
       let action = $(this).attr('data-clik')
       switch (action) {
         case 'search':
@@ -103,13 +104,13 @@ jQuery(document).ready(function ($) {
   }
 
   function showActionList () {
-    var theList = '<div class="ui circular labels big actions"> \
-        <a class="ui label" data-clik="camera"> <i class="camera retro icon"></i> </a> \
-        <a class="ui label" data-clik="attach"> <i class="attach icon"></i> </a> \
-        <a class="ui label" data-clik="attach"> <i class="file video outline icon"></i> </a> \
-        <a class="ui label" data-clik="attach"> <i class="marker icon"></i> </a> \
-        <a class="ui label" data-clik="attach"> <i class="lock icon"></i> </a> \
-        <a class="ui label" data-clik="search"> <i class="search icon"></i> </a> \
+    var theList = '<div class="labelactions"> \
+        <a data-clik="camera"> <i class="camera retro big icon"></i> </a> \
+        <a data-clik="attach"> <i class="attach big icon"></i> </a> \
+        <a data-clik="attach"> <i class="file video outline big icon"></i> </a> \
+        <a data-clik="attach"> <i class="marker big icon"></i> </a> \
+        <a data-clik="attach"> <i class="lock big icon"></i> </a> \
+        <a data-clik="search"> <i class="search big icon"></i> </a> \
       </div>'
     $chatDiv.append(theList)
     botBeep.play()
@@ -167,6 +168,14 @@ jQuery(document).ready(function ($) {
       source: content
     })
   }
+
+  $('.ybt').on('click', function () {
+    $('#ybt').remove();
+    setTimeout(function () {
+      messageRow('What can i do for you?', 'left')
+      showChoice()
+    }, 500)
+  })
 })
 
 // setInterval(function () {
