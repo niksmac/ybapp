@@ -170,7 +170,7 @@ jQuery(document).ready(function ($) {
   }
 
   $('.ybt').on('click', function () {
-    $('#ybt').remove();
+    $('#ybt').remove()
     setTimeout(function () {
       messageRow('What can i do for you?', 'left')
       showChoice()
