@@ -1,25 +1,23 @@
 'use strict'
 
 jQuery(document).ready(function ($) {
+  $.fn.api.settings.api = {
+	 	'transition': 'pulse',
+    'error': {
+      'noResults': ''
+    }
+  }
+  initSearchonMessage()
+  var itsThere = 0
   // alert('f')
   var $chatDiv = $('#chat-messageboxs')
   var botBeep = new Audio('assets/beeps/bot.mp3')
   var meBeep = new Audio('assets/beeps/me.mp3')
 
-  // 1
-  setTimeout(function () {
-    // showWelcome()
-    // messageRow('What can i do for you?', 'left')
-    // showChoice()
-  }, 1500)
-
   function messageRow (txt, side) {
     focusMessage()
-    // setTimeout(function () {
     $chatDiv.append('<div class="messagebox ' + side + '"> \
-        <div class="bubble"> ' + txt + ' </div> \
-      </div>')
-    // }, 1000)
+    <div class="bubble"> ' + txt + ' </div></div>')
   }
 
   function focusMessage () {
@@ -29,14 +27,13 @@ jQuery(document).ready(function ($) {
   }
 
   function showChoice () {
-    setTimeout(function () {
-      $('#infoSection').append('<div class="ui grid"> \
-          <div class="ten wide column"><a data-actn="answer" class="ui right pointing label">answer</a></div>\
-          <div class="five wide column right aligned"><a data-actn="plus" class="ui black label">+</a></div>\
-        </div>')
-      initChoiceClick()
-      botBeep.play()
-    }, 1000)
+    $('#infoSection').append('<div class="ui grid itsThere"> \
+      <div class="ten wide column"><a data-actn="answer" class="ui right pointing label">answer</a></div>\
+      <div class="five wide column right aligned"><a data-actn="plus" class="ui black label">+</a></div>\
+      </div>')
+    initChoiceClick()
+    showActionList()
+    botBeep.play()
   }
 
   $('#msgTxt').on('keyup', function () {
@@ -56,6 +53,7 @@ jQuery(document).ready(function ($) {
       meBeep.play()
       $('#msgTxt').val('')
     }
+    messageRow('Yes, ' + msg, 'left')
   })
 
   function initChoiceClick () {
@@ -81,18 +79,18 @@ jQuery(document).ready(function ($) {
       let action = $(this).attr('data-clik')
       switch (action) {
         case 'search':
-          openSearch()
+          prepareInput()
           break
         case 'camera':
           $('.ui.modal').modal('show')
           navigator.webkitGetUserMedia({video: true},
-            function (stream) {
-              document.getElementById('camera').src = URL.createObjectURL(stream)
-            },
-            function () {
-              alert('could not connect stream')
-            }
-          )
+          function (stream) {
+            document.getElementById('camera').src = URL.createObjectURL(stream)
+          },
+          function () {
+            alert('could not connect stream')
+          }
+        )
           break
         case 'attach':
           $('#file').trigger('click')
@@ -104,17 +102,22 @@ jQuery(document).ready(function ($) {
   }
 
   function showActionList () {
-    var theList = '<div class="labelactions"> \
-        <a data-clik="camera"> <i class="camera retro big icon"></i> </a> \
-        <a data-clik="attach"> <i class="attach big icon"></i> </a> \
-        <a data-clik="attach"> <i class="file video outline big icon"></i> </a> \
-        <a data-clik="attach"> <i class="marker big icon"></i> </a> \
-        <a data-clik="attach"> <i class="lock big icon"></i> </a> \
-        <a data-clik="search"> <i class="search big icon"></i> </a> \
+    if (itsThere === 0) {
+      var theList = '<div class="labelactions"> \
+      <a data-clik="camera"> <i class="camera retro big icon"></i> </a> \
+      <a data-clik="attach"> <i class="attach big icon"></i> </a> \
+      <a data-clik="attach"> <i class="file video outline big icon"></i> </a> \
+      <a data-clik="attach"> <i class="marker big icon"></i> </a> \
+      <a data-clik="attach"> <i class="lock big icon"></i> </a> \
+      <a data-clik="search"> <i class="plus big icon"></i> </a> \
       </div>'
-    $chatDiv.append(theList)
-    botBeep.play()
-    initActionsClick()
+      $chatDiv.append(theList)
+      botBeep.play()
+      initActionsClick()
+      itsThere = 1
+    } else {
+      $($('.itsThere').detach()).appendTo('#chat-messageboxs')
+    }
   }
 
   function prepareInput () {
@@ -138,8 +141,8 @@ jQuery(document).ready(function ($) {
     $('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle')
 
     var content = [
-      { title: 'Andorra' },
-      { title: 'United Arab Emirates' },
+      { title: 'Informations' },
+      { title: 'Conversations' },
       { title: 'Afghanistan' },
       { title: 'Antigua' },
       { title: 'Anguilla' },
@@ -172,10 +175,24 @@ jQuery(document).ready(function ($) {
   $('.ybt').on('click', function () {
     $('#ybt').remove()
     setTimeout(function () {
-      messageRow('What can i do for you?', 'left')
+      // messageRow('What can i do for you?', 'left')
       showChoice()
-    }, 500)
+    }, 200)
   })
+
+  function initSearchonMessage () {
+    console.log('searching')
+    var content = [
+      { title: 'Informations' },
+      { title: 'Conversations' },
+      { title: 'Videos' },
+      { title: 'Books' },
+      { title: 'Music' },
+      { title: 'Shopping' },
+      { title: 'Games' }
+    ]
+    $('.msgTxt').search({source: content})
+  }
 })
 
 // setInterval(function () {
