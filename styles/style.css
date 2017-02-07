@@ -334,3 +334,24 @@ video {
   box-shadow:0px 1px 11px 0px rgba(204, 204, 204, 0.45);
   cursor: pointer;
 }
+.results {
+  position: absolute;
+  bottom: 50px;
+  background: #FFF;
+  width: 100%;
+}
+#chatInput .results .result {
+  display: block;
+  padding: 10px 5px 5px 15px;
+  border-bottom: 1px solid #ccc;
+}
+.message.empty{
+  visibility: hidden;
+  display: none;
+}
+button:focus {
+  outline: 0 none;
+}
+.grid.itsThere {
+  clear: both;
+}
