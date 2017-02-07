@@ -355,3 +355,6 @@ button:focus {
 .grid.itsThere {
   clear: both;
 }
+.muted {
+  opacity: 0.3
+}
