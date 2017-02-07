@@ -14,7 +14,8 @@ function createWindow () {
     height: 550,
     minWidth: 360,
     minHeight: 550,
-    frame: false
+    frame: false,
+    icon: path.join(__dirname, 'assets/img/YouriPng.png')
     // titleBarStyle: 'hidden'
   })
 

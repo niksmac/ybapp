@@ -1,6 +1,8 @@
 'use strict'
 
 jQuery(document).ready(function ($) {
+  var VerEx = require('scripts/verbalexpressions')
+
   $.fn.api.settings.api = {
 	 	'transition': 'pulse',
     'error': {
@@ -52,7 +54,10 @@ jQuery(document).ready(function ($) {
       messageRow(msg, 'right')
       meBeep.play()
       $('#msgTxt').val('')
-      messageRow('Yes, ' + msg, 'left')
+      setTimeout(function () {
+        messageRow('Yes, ' + msg, 'left')
+        botBeep.play()
+      }, Math.floor(Math.random() * 1000))
     }
   })
 
@@ -174,6 +179,7 @@ jQuery(document).ready(function ($) {
 
   $('.ybt').on('click', function () {
     $('#ybt').remove()
+    welcomeUser()
     setTimeout(function () {
       // messageRow('What can i do for you?', 'left')
       showChoice()
@@ -192,6 +198,12 @@ jQuery(document).ready(function ($) {
       { title: 'Games' }
     ]
     $('.msgTxt').search({source: content})
+  }
+
+  function welcomeUser () {
+    if (!store.get('name')) {
+      console.log('names there')
+    }
   }
 })
 

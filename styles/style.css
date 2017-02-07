@@ -286,7 +286,7 @@ div.messagebox.left .bubble:before {
 #chatInput {
   width: 100vw;
   position: fixed;
-  bottom: 0;
+  bottom: -4px;
   border-top: 1px solid #ddd;
   min-height: 50px;
 }
@@ -334,8 +334,9 @@ video {
   box-shadow:0px 1px 11px 0px rgba(204, 204, 204, 0.45);
   cursor: pointer;
 }
-.results {
+#chatInput .results {
   position: absolute;
+  border-top: 1px solid #EEE;
   bottom: 50px;
   background: #FFF;
   width: 100%;
