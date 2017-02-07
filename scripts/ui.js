@@ -52,8 +52,8 @@ jQuery(document).ready(function ($) {
       messageRow(msg, 'right')
       meBeep.play()
       $('#msgTxt').val('')
+      messageRow('Yes, ' + msg, 'left')
     }
-    messageRow('Yes, ' + msg, 'left')
   })
 
   function initChoiceClick () {
