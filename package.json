@@ -16,11 +16,11 @@
     "demo"
   ],
   "devDependencies": {
-    "electron-packager": "^8.5.0"
+    "electron": "^1.4.1"
   },
   "author": "GitHub",
   "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^1.4.1"
+  "dependencies": {
+    "store2": "^2.5.0"
   }
 }
