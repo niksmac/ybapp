@@ -1,7 +1,7 @@
 'use strict'
 
 jQuery(document).ready(function ($) {
-  var VerEx = require('scripts/verbalexpressions')
+  // var VerEx = require('scripts/verbalexpressions')
 
   $.fn.api.settings.api = {
 	 	'transition': 'pulse',
@@ -9,12 +9,13 @@ jQuery(document).ready(function ($) {
       'noResults': ''
     }
   }
-  initSearchonMessage()
   var itsThere = 0
   // alert('f')
   var $chatDiv = $('#chat-messageboxs')
   var botBeep = new Audio('assets/beeps/bot.mp3')
   var meBeep = new Audio('assets/beeps/me.mp3')
+
+  initSearchonMessage()
 
   function messageRow (txt, side) {
     focusMessage()
@@ -108,13 +109,13 @@ jQuery(document).ready(function ($) {
 
   function showActionList () {
     if (itsThere === 0) {
-      var theList = '<div class="labelactions"> \
-      <a data-clik="camera"> <i class="camera retro big icon"></i> </a> \
-      <a data-clik="attach"> <i class="attach big icon"></i> </a> \
-      <a data-clik="attach"> <i class="file video outline big icon"></i> </a> \
-      <a data-clik="attach"> <i class="marker big icon"></i> </a> \
-      <a data-clik="attach"> <i class="lock big icon"></i> </a> \
-      <a data-clik="search"> <i class="plus big icon"></i> </a> \
+      var theList = '<div class="ui equal width grid labelactions"> \
+      <a class="column" data-clik="camera"> <i class="material-icons">perm_camera_mic</i> </a> \
+      <a class="column" data-clik="attach"> <i class="material-icons">attachment</i> </a> \
+      <a class="column" data-clik="attach"> <i class="material-icons">create_new_folder</i> </a> \
+      <a class="column" data-clik="attach"> <i class="material-icons">add_location</i> </a> \
+      <a class="column" data-clik="attach"> <i class="material-icons">lock_open</i> </a> \
+      <a class="column" data-clik="search"> <i class="material-icons">queue</i> </a> \
       </div>'
       $chatDiv.append(theList)
       botBeep.play()
@@ -179,7 +180,7 @@ jQuery(document).ready(function ($) {
 
   $('.ybt').on('click', function () {
     $('#ybt').remove()
-    welcomeUser()
+    // welcomeUser()
     setTimeout(function () {
       // messageRow('What can i do for you?', 'left')
       showChoice()
@@ -204,6 +205,31 @@ jQuery(document).ready(function ($) {
     if (!store.get('name')) {
       console.log('names there')
     }
+  }
+  function showConversations () {
+    var convHtml = '<div class="ui two column grid"> \
+  <div class="column"> \
+    <div class="ui fluid link card"> \
+      <div class="content"> \
+        <a class="header">Daniel Louise</a>\
+      </div> \
+    </div> \
+  </div> \
+  <div class="column"> \
+  <div class="ui link card"> \
+    <div class="content"> \
+      <div class="header">Cute Dog</div> \
+      <div class="meta"> \
+        <span class="category">Animals</span> \
+      </div> \
+      <div class="description"> \
+        <p></p> \
+      </div> \
+    </div> \
+  </div> \
+  </div> \
+  </div>'
+    $chatDiv.append(convHtml)
   }
 })
 
